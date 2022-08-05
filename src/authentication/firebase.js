@@ -1,6 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { getFirestore } from "firebase/firestore";
+import { getFirestore, collection, query, orderBy, getDocs } from "firebase/firestore";
+import { createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword, signOut, updateProfile } from 'firebase/auth'
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -19,5 +20,20 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app)
+const auth = getAuth(app)
 
-export { db }
+const getGraduates = async () => {
+  try {
+        const q = query(collection(db, "graduates"), orderBy("timestamp", "desc"));
+        const querySnapshot = await getDocs(q);
+        querySnapshot.forEach((doc) => {
+          // doc.data() is never undefined for query doc snapshots
+          console.log(doc.id, " => ", doc.data());
+        });
+        return querySnapshot;
+    } catch (err) {
+        return []
+    }
+}
+
+export { db, auth, getGraduates }

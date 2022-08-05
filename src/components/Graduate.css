@@ -1,0 +1,45 @@
+.graduate{
+  width: 65%;
+  background-color: white;
+  position: relative;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+ }
+ .graduate__tag{
+  width: 300px;
+  margin-left: auto;
+  right: 15px;
+  top: -1px;
+  display: flex;
+  position: absolute;
+  justify-content: center;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  color: white;
+  background: rgb(37, 15, 165);
+ }
+ .graduate__header{
+  display:flex;
+  margin-bottom: 10px;
+ }
+ .graduate__info{
+  margin-left: 10px;
+ }
+ .graduate__info > p{
+  font-size: 12px;
+  color: gray;
+ }
+ .graduate__info > h2{
+  font-size: 15px;
+ }
+ .graduate__body{
+  overflow-wrap: anywhere;
+ }
+ .graduate__buttons{
+  display: flex;
+  justify-content: space-around;
+ }
+ 
