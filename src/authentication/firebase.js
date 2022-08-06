@@ -24,12 +24,8 @@ const auth = getAuth(app)
 
 const getGraduates = async () => {
   try {
-        const q = query(collection(db, "graduates"), orderBy("timestamp", "desc"));
+        const q = query(collection(db, "graduates"));
         const querySnapshot = await getDocs(q);
-        querySnapshot.forEach((doc) => {
-          // doc.data() is never undefined for query doc snapshots
-          console.log(doc.id, " => ", doc.data());
-        });
         return querySnapshot;
     } catch (err) {
         return []

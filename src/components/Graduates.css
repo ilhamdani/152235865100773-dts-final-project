@@ -1,5 +1,8 @@
 .graduates{
-  margin: 40px 0;
+  margin: 40px auto;
   display: flex;
+  align-items: center;
   justify-content: center;
+  flex-direction: column;
+  gap: 8px;
  }

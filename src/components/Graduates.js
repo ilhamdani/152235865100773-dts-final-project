@@ -7,16 +7,14 @@ const Graduates = () => {
   const [graduates, setGraduates] = useState([])
 
   useEffect(() => {
-    getGraduates()
-    .then((doc) => {
-      console.log(doc.data);
-    })
-    // getGraduates.forEach((doc) => {
-    //     setGraduates({
-    //       id: doc.id,
-    //       data: doc.data()
-    //     })
-    //   })
+    const fetchData = async () =>{
+      const data = await getGraduates()
+      setGraduates(data.docs.map(doc => ({
+        id: doc.id,
+        data: doc.data()
+      })))
+    }
+    fetchData();
   }, [])
 
   return (
